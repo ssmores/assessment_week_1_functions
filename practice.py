@@ -138,9 +138,30 @@ def print_sign(sign_int):
 #    boolean (True or False), depending on whether the number
 #    is evenly divisible by 3.
 
+def is_divisible_by_three(three_integer):
+    """If integer is divisible by three, returns True, otherwise returns False.
+
+    Takes an integer, and returns a value of True if it's divisible by three. 
+    It returns False if it's not divisible by three.
+    """
+    return three_integer % 3 == 0
+
 
 # 7. Write a function called 'num_spaces' that takes a sentence as one string and
 #    returns the number of spaces.
+
+def num_spaces(spaces_string):
+    """Returns the number of spaces as available in the sentence.
+
+    Takes a sentence string, and returns the nmber of spaces in the string.
+    """
+
+    count_of_spaces = 0
+    for space in spaces_string:
+        if space == " ":
+            count_of_spaces +=1
+
+    return count_of_spaces
 
 
 # 8. Write a function called 'total_meal_price' that can be passed a meal price and a
@@ -149,6 +170,16 @@ def print_sign(sign_int):
 #    percentage should be optional; if not given, it should
 #    default to 15%.
 
+def total_meal_price(meal_price, tip_percent=15):
+    """This will calculate the cost of a meal, provided the meal cost and tax.
+
+    Takes the meal price, and adds the tip amount.  The tip is defaulted to 15%, 
+    but can be provided as the parameter if it is not 15%.
+    """
+
+    total_cost = meal_price + (meal_price * tip_percent)
+    return total_cost
+    
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an argument and
 #    returns two pieces of information as strings ---
