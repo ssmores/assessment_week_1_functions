@@ -170,16 +170,17 @@ def num_spaces(spaces_string):
 #    percentage should be optional; if not given, it should
 #    default to 15%.
 
-def total_meal_price(meal_price, tip_percent=15):
+def total_meal_price(meal_price, tip_percent=0.15):
     """This will calculate the cost of a meal, provided the meal cost and tax.
 
     Takes the meal price, and adds the tip amount.  The tip is defaulted to 15%, 
     but can be provided as the parameter if it is not 15%.
     """
 
-    total_cost = meal_price + (meal_price * tip_percent)
+    total_cost = meal_price + float((meal_price * tip_percent))
+
     return total_cost
-    
+
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an argument and
 #    returns two pieces of information as strings ---
@@ -191,6 +192,35 @@ def total_meal_price(meal_price, tip_percent=15):
 #    variables --- sign and parity (whether it's even or odd).
 #    Print sign and parity.
 
+def sign_and_parity(sign_and_parity_int):
+    """Prints if an integer is positive or negative, and if it's even or odd.
+
+    Determines if the sign of the integer is even or odd, and if the parity is
+    positive or negative.  Prints out these values in a list.
+    """
+
+    sign_parity_list = []
+
+    if type(sign_and_parity_int) == int or type(sign_and_parity_int) == float:
+        int(sign_and_parity_int)
+        if sign_and_parity_int == 0:
+            print "0 is neither even or odd, nor is positive or negative."
+        elif sign_and_parity_int > 0 and sign_and_parity_int % 2 == 0:
+            sign_parity_list.append("Even")          
+            sign_parity_list.append("Positive")
+        elif sign_and_parity_int > 0 and sign_and_parity_int % 2 != 0:
+            sign_parity_list.append("Odd")
+            sign_parity_list.append("Positive")
+        elif sign_and_parity_int < 0 and sign_and_parity_int % 2 == 0:
+            sign_parity_list.append("Even")            
+            sign_parity_list.append("Negative")
+        elif sign_and_parity_int < 0 and sign_and_parity_int % 2 != 0:
+            sign_parity_list.append("Odd")
+            sign_parity_list.append("Negative")
+
+    print sign_parity_list
+
+
 
 ################################################################################
 # PART TWO
@@ -200,6 +230,16 @@ def total_meal_price(meal_price, tip_percent=15):
 #    job title defaults to "Engineer" if a job title is not passed in.
 #    Return the person's title and name in one string.
 
+def full_title(name, title="Engineer"):
+    """Will take a name and optional title, and return a string of their name and title.
+
+    Takes a person's name, and option title, and will return a string of the
+    person's name and title as a string.  If the title isn't provided, they will 
+    be an engineer by default.
+    """
+
+    return title + " " + name
+
 # 2. Given a recipient name & job title and a sender name,
 #    print the following letter:
 #
@@ -208,6 +248,27 @@ def total_meal_price(meal_price, tip_percent=15):
 #
 #    Use the function from #1 to construct the full title for the letter's
 #    greeting.
+
+def write_letter(recipient_name, job_title, sender_name):
+    """Prints compliment in letter style, to a job seeker, from a sender.
+
+    Prints a letter, which will show the job seeker's title and name, 
+    tells them that they are amazing, and signs the sender's name.
+    """
+
+    print "Dear %s %s, I think you are amazing! Sincerely, %s" % (job_title, 
+        recipient_name, sender_name )
+
+
+def add_new_number(new_num, list_of_nums):
+    """Adds a new number to an already defined list.
+
+    Appends a new number to an already defined list.
+    """
+
+    new_list = list_of_nums
+
+    new_list.append(new_num)
 
 
 #####################################################################
